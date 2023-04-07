@@ -40,18 +40,28 @@ const onClickLogin = () => {
         :style="{ backgroundSize: `${bgWidth}px ${bgHeight}px` }"
     >
         <div>
-            <el-input v-model="phone" type="text" class="mb-2 input">
+            <el-input
+                v-model="phone"
+                type="text"
+                class="mb-2 input"
+                placeholder="Nhập số điện thoại"
+            >
                 <template #prefix>
                     <Phone style="width: 1em; height: 1em; margin-right: 8px" />
                 </template>
             </el-input>
-            <el-input v-model="password" type="password" class="mb-3 input">
+            <el-input
+                v-model="password"
+                type="password"
+                class="mb-3 input"
+                placeholder="Mật khẩu"
+            >
                 <template #prefix>
                     <Lock style="width: 1em; height: 1em; margin-right: 8px" />
                 </template>
             </el-input>
             <div
-                class="d-flex flex-row flex-wrap justify-content-between align-content-center mb-2"
+                class="d-flex flex-row flex-wrap justify-content-between align-content-center mb-3"
             >
                 <el-checkbox
                     v-model="remember"
@@ -66,9 +76,20 @@ const onClickLogin = () => {
             </div>
         </div>
         <div class="mb-3">
-            <el-button class="login-btn" @click="onClickLogin"
-                >Đăng nhập</el-button
+            <el-button
+                class="login-btn position-relative"
+                @click="onClickLogin"
             >
+                <template #default>
+                    Đăng nhập
+                    <img
+                        src="@/assets/images/sun.png"
+                        alt=""
+                        class="position-absolute"
+                        style="width: 42px; left: -5px; top: -18px"
+                    />
+                </template>
+            </el-button>
         </div>
         <div>
             <span class="register">
@@ -105,11 +126,12 @@ const onClickLogin = () => {
     color: yellow;
 }
 .login-btn {
-    padding: 24px 28px;
+    padding: 24px 40px;
     font-size: 22px;
     line-height: 24px;
-    background-color: yellow;
+    background-color: #ffe759;
     color: white;
+    text-shadow: 0 0 8px #b87835;
 }
 .register {
     color: white;

@@ -34,9 +34,8 @@ const onClickPlayAudio = () => {
 
 <template>
     <div
-        class="position-absolute d-flex flex-column align-items-center podcast-content"
+        class="position-absolute d-flex flex-column align-items-center podcast-content justify-content-center"
     >
-        <h4>Chủ đề: {{ topicName }}</h4>
         <img :src="podcast.image" alt="" class="podcast-img mb-1" />
         <span class="mb-2">{{ podcast.name }}</span>
         <div class="mb-2">
@@ -72,11 +71,11 @@ const onClickPlayAudio = () => {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 70px 30px 0 30px;
+    padding: 0 30px 0 30px;
 }
 .podcast-img {
     max-width: 150px;
-    width: 30%;
+    width: 40%;
     border-radius: 8px;
 }
 .audio-btn-ctn {
@@ -95,6 +94,17 @@ const onClickPlayAudio = () => {
 .audio-btn {
     width: 50%;
 }
+.audio {
+    width: 100%;
+    max-width: 350px;
+}
+
+@media (max-width: 520px) {
+    .podcast-img {
+        width: 50%;
+    }
+}
+
 audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display,
 audio::-webkit-media-controls-play-button,

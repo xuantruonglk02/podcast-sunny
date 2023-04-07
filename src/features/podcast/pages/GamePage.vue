@@ -52,6 +52,9 @@ const onClickWaterCan = () => {
     continueWatering.value = false;
     wateringEnabled.value = true;
     setTimeout(() => {
+        if (treeIndex.value === 0) {
+            continueWatering.value = true;
+        }
         wateringEnabled.value = false;
         wateringMsg.value =
             'Bạn đã hết lượt tưới nước. Hãy nghe podcast để nhận thêm';
@@ -71,9 +74,19 @@ const onClickWaterCan = () => {
 <template>
     <div class="container">
         <div v-if="!podcastStore.haveTree">
-            <el-button class="new-btn" @click="onClickSeedStore"
-                >Trồng cây mới</el-button
+            <el-button
+                class="new-btn position-relative"
+                @click="onClickSeedStore"
             >
+                <template #default>
+                    <img
+                        src="@/assets/images/point.gif"
+                        alt=""
+                        class="position-absolute point"
+                    />
+                    Trồng cây mới
+                </template>
+            </el-button>
         </div>
         <div
             v-else
@@ -106,7 +119,7 @@ const onClickWaterCan = () => {
                 <el-tooltip
                     effect="light"
                     placement="top"
-                    :content="wateringMsg"
+                    :content="getTreeIndex === 0 ? 'Tưới nước' : wateringMsg"
                 >
                     <div class="btn-ctn" @click="onClickWaterCan">
                         <img
@@ -139,12 +152,18 @@ const onClickWaterCan = () => {
     font-weight: 700;
     color: white;
     height: 40px;
+    text-shadow: 0px 0px 5px #002f6d;
+}
+.point {
+    left: -45px;
+    top: -10px;
+    width: 60px;
 }
 .new-btn:hover {
     box-shadow: 0 0 10px 0px white;
 }
 .tree-ctn {
-    max-width: 450px;
+    max-width: 400px;
     width: 100%;
     margin-bottom: 20px;
 }

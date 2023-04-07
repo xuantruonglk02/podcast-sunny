@@ -15,7 +15,7 @@ interface DisplayElement {
 const topics = [
     {
         id: 0,
-        name: 'Thương người như thể thương thân',
+        name: 'Yêu thương bao la',
         watched: false,
         podcasts: [
             {
@@ -28,13 +28,11 @@ const topics = [
                 ).href,
             },
             {
-                name: 'Bố mẹ đã "cưa đổ" tớ',
+                name: 'Văn học: Tên podcast ở đây',
                 image: new URL('@/assets/images/topic.png', import.meta.url)
                     .href,
-                sound: new URL(
-                    '@/assets/audio/0-1-bo-me-da-cua-do-to.m4a',
-                    import.meta.url
-                ).href,
+                sound: new URL('@/assets/audio/podcast.mp3', import.meta.url)
+                    .href,
             },
             {
                 name: 'Tâm sự: Tên podcast ở đây',
@@ -47,15 +45,17 @@ const topics = [
     },
     {
         id: 1,
-        name: 'Có chí thì nên',
+        name: 'Thành thật là vàng',
         watched: false,
         podcasts: [
             {
-                name: 'Văn học: Tên podcast ở đây',
+                name: 'Bố mẹ đã "cưa đổ" tớ',
                 image: new URL('@/assets/images/topic.png', import.meta.url)
                     .href,
-                sound: new URL('@/assets/audio/podcast.mp3', import.meta.url)
-                    .href,
+                sound: new URL(
+                    '@/assets/audio/0-1-bo-me-da-cua-do-to.m4a',
+                    import.meta.url
+                ).href,
             },
             {
                 name: 'Văn học: Tên podcast ở đây',
@@ -75,25 +75,25 @@ const topics = [
     },
     {
         id: 2,
-        name: 'Măng mọc thẳng',
+        name: 'Sức mạnh của ý chí',
         watched: false,
         podcasts: [],
     },
     {
         id: 3,
-        name: 'Tiếng sáo diều',
+        name: 'Cùng nhau đoàn kết',
         watched: false,
         podcasts: [],
     },
     {
         id: 4,
-        name: 'Đoàn kết',
+        name: 'Dấu ấn quê hương',
         watched: false,
         podcasts: [],
     },
     {
         id: 5,
-        name: 'Vẻ đẹp muôn màu',
+        name: 'Nơi tình yêu đong đầy',
         watched: false,
         podcasts: [],
     },
@@ -105,7 +105,7 @@ const topics = [
     },
     {
         id: 7,
-        name: 'Khám phá thế giới',
+        name: 'Thế giới diệu kì',
         watched: false,
         podcasts: [],
     },
@@ -173,7 +173,11 @@ const onSendConfide = () => {
     confideEnable.value = false;
 };
 const onGotoGame = () => {
-    if (allowGame.value) {
+    if (
+        allowGame.value ||
+        (selectedTopic.value.id === 0 &&
+            openPodcast.value?.name === selectedTopic.value.podcasts[0].name)
+    ) {
         allowGame.value = false;
         router.push({ name: PageName.GAME_PAGE });
     }
@@ -182,26 +186,27 @@ const onGotoGame = () => {
 
 <template>
     <div class="row align-items-start container">
-        <div class="col-sm-3 topics">
+        <div class="col-md-3 topics">
             <div
                 class="mb-2"
                 style="
-                    padding: 16px;
+                    padding: 8px;
                     text-align: center;
                     background-color: chocolate;
                     color: white;
                     font-weight: 700;
                     border-radius: 12px;
+                    font-size: 24px;
                 "
             >
-                Chủ đề
+                Chủ điểm
             </div>
-            <el-scrollbar height="450px">
+            <el-scrollbar style="height: calc(100% - 60px)">
                 <div v-for="(topic, index) in getDisplayList()" :key="index">
                     <div
                         v-if="(topic as DisplayElement).isTopic"
                         @click="onClickTopic((topic as DisplayElement).id)"
-                        class="d-flex flex-row align-items-center mb-1 topic"
+                        class="d-flex flex-row align-items-center mb-1 topic justify-content-start"
                     >
                         <img
                             src="@/assets/images/topic.png"
@@ -213,7 +218,7 @@ const onGotoGame = () => {
                     <div
                         v-else
                         @click="onClickPodcast((topic as DisplayElement).id)"
-                        class="d-flex flex-row align-items-center mb-1 podcast-item"
+                        class="d-flex flex-row align-items-center mb-1 podcast-item justify-content-start"
                     >
                         <img
                             src="@/assets/images/topic.png"
@@ -225,7 +230,7 @@ const onGotoGame = () => {
                 </div>
             </el-scrollbar>
         </div>
-        <div class="col-sm-8 podcast position-relative">
+        <div class="col-md-8 podcast position-relative">
             <div>
                 <img
                     src="@/assets/images/podcast-board.png"
@@ -235,6 +240,7 @@ const onGotoGame = () => {
             </div>
             <PodcastVue
                 v-if="openPodcast"
+                :key="openPodcast.name"
                 :topicName="selectedTopic.name"
                 :podcast="openPodcast"
                 @ended="onEnded"
@@ -272,6 +278,7 @@ const onGotoGame = () => {
     padding: 8px;
     background-color: darkred;
     margin-right: 12px;
+    height: 70vh;
 }
 .topic {
     padding: 8px;
@@ -280,6 +287,12 @@ const onGotoGame = () => {
     text-align: left;
     cursor: pointer;
     user-select: none;
+}
+.podcast {
+    height: 100%;
+}
+.podcast > div {
+    height: 100%;
 }
 .podcast-item {
     margin: 0 8px;
@@ -298,6 +311,9 @@ const onGotoGame = () => {
 }
 .podcast-bg {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 .goto-game-btn {
     bottom: 0;
@@ -305,11 +321,33 @@ const onGotoGame = () => {
     width: 120px;
     border-radius: 50%;
     cursor: pointer;
+    height: auto !important;
 }
 .goto-game-btn:hover {
     box-shadow: 0 0 10px 0px white;
 }
 .goto-game-img {
     width: 100%;
+}
+
+@media (max-width: 520px) {
+    .container {
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+    .topics {
+        height: 300px;
+    }
+    .podcast {
+        margin-top: 12px;
+        height: 450px !important;
+        padding: 0;
+    }
+    .goto-game-btn {
+        position: fixed !important;
+        width: 50px;
+        bottom: 32px;
+        left: 16px;
+    }
 }
 </style>

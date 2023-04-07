@@ -38,8 +38,8 @@ const onSend = () => {
 
 <style scoped>
 .share-ctn {
-    width: 240px;
-    bottom: 30px;
+    width: 190px;
+    bottom: 95px;
     right: 30px;
 }
 .share-img {
@@ -57,5 +57,13 @@ const onSend = () => {
 .send-btn {
     width: 24px;
     height: 24px;
+}
+@media (max-width: 520px) {
+    .share-ctn {
+        position: fixed !important;
+        width: 120px;
+        bottom: 32px;
+        right: 8px;
+    }
 }
 </style>

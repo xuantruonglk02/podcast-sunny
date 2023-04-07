@@ -4,8 +4,8 @@ import { PageName } from '@/common/constants';
 
 <template>
     <div class="container">
-        <div class="d-flex flex-row align-items-end">
-            <div>
+        <div class="d-flex flex-row align-items-end justify-content-center">
+            <div style="margin-right: 40px">
                 <img
                     src="@/assets/images/choose-class.png"
                     alt=""
@@ -52,7 +52,7 @@ import { PageName } from '@/common/constants';
     height: 100%;
     text-align: center;
     top: 0;
-    padding-top: 65px;
+    padding-top: 20%;
 }
 .class {
     text-decoration: none;
@@ -68,6 +68,6 @@ import { PageName } from '@/common/constants';
     width: 250px;
 }
 .class-group > div {
-    margin-left: 20px;
+    margin-left: 40px;
 }
 </style>
