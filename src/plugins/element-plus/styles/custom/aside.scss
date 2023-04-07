@@ -1,0 +1,50 @@
+@import '../../../../assets/styles/variables.scss';
+
+.el-aside {
+    .el-scrollbar__view {
+        padding: 12px;
+
+        &,
+        .el-menu--vertical {
+            height: 100%;
+        }
+
+        .el-menu--vertical {
+            border-right: none;
+        }
+
+        .el-menu-item {
+            padding: 0 12px !important;
+            height: 40px;
+            border-radius: 10px;
+            line-height: 40px;
+        }
+
+        .el-menu-item.is-active {
+            background-color: $color-aside-active;
+            color: black;
+
+            & > span {
+                font-weight: 600;
+            }
+        }
+
+        .el-menu-item:hover {
+            background-color: $color-hover;
+        }
+
+        .el-menu-item > span {
+            margin-left: 24px;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .el-divider {
+            margin: 12px 0;
+        }
+
+        .el-menu--vertical > div:last-of-type {
+            padding-bottom: 12px;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 24px;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.el-input {
+    .el-input__wrapper {
+        padding: 1px 16px;
+        height: 40px;
+        border-radius: inherit;
+
+        .el-input__inner {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+    }
+}
