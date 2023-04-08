@@ -6,18 +6,78 @@ import SeedStore from '../components/SeedStore.vue';
 const podcastStore = usePodcastStore();
 
 const treeList = [
-    {
-        wateringTime: 0,
-    },
-    {
-        wateringTime: 1,
-    },
-    {
-        wateringTime: 2,
-    },
-    {
-        wateringTime: 3,
-    },
+    [
+        {
+            wateringTime: 0,
+            path: new URL('@/assets/images/tree-0-0.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 1,
+            path: new URL('@/assets/images/tree-0-1.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 2,
+            path: new URL('@/assets/images/tree-0-2.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 3,
+            path: new URL('@/assets/images/tree-0-3.png', import.meta.url).href,
+        },
+    ],
+    [
+        {
+            wateringTime: 0,
+            path: new URL('@/assets/images/tree-1-0.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 1,
+            path: new URL('@/assets/images/tree-1-1.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 2,
+            path: new URL('@/assets/images/tree-1-2.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 3,
+            path: new URL('@/assets/images/tree-1-3.png', import.meta.url).href,
+        },
+    ],
+    [
+        {
+            wateringTime: 0,
+            path: new URL('@/assets/images/tree-2-0.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 1,
+            path: new URL('@/assets/images/tree-2-1.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 2,
+            path: new URL('@/assets/images/tree-2-2.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 3,
+            path: new URL('@/assets/images/tree-2-3.png', import.meta.url).href,
+        },
+    ],
+    [
+        {
+            wateringTime: 0,
+            path: new URL('@/assets/images/tree-3-0.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 1,
+            path: new URL('@/assets/images/tree-3-1.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 2,
+            path: new URL('@/assets/images/tree-3-2.png', import.meta.url).href,
+        },
+        {
+            wateringTime: 3,
+            path: new URL('@/assets/images/tree-3-3.png', import.meta.url).href,
+        },
+    ],
 ];
 
 const isShowStorePopup = ref(false);
@@ -61,9 +121,9 @@ const onClickWaterCan = () => {
 
         podcastStore.setWateringTime(podcastStore.wateringTime + 1);
         if (
-            treeLevel.value <= treeList.length &&
+            treeLevel.value <= treeList[treeIndex.value].length &&
             podcastStore.wateringTime ===
-                treeList[treeLevel.value + 1]?.wateringTime
+                treeList[treeIndex.value][treeLevel.value + 1]?.wateringTime
         ) {
             treeLevel.value += 1;
         }
@@ -94,9 +154,8 @@ const onClickWaterCan = () => {
             style="max-width: 700px; margin: auto"
         >
             <div class="position-relative tree-ctn">
-                <!-- <img :src="treeList[treeLevel].path" alt="" class="tree" /> -->
                 <img
-                    :src="`/src/assets/images/tree-${getTreeIndex}-${getTreeLevel}.png`"
+                    :src="treeList[treeIndex][treeLevel].path"
                     alt=""
                     class="tree"
                 />

@@ -53,7 +53,7 @@ const topics = [
                 image: new URL('@/assets/images/topic.png', import.meta.url)
                     .href,
                 sound: new URL(
-                    '@/assets/audio/0-1-bo-me-da-cua-do-to.m4a',
+                    '@/assets/audio/1-0-bo-me-da-cua-do-to.m4a',
                     import.meta.url
                 ).href,
             },
