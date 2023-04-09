@@ -39,8 +39,8 @@ const onSend = () => {
 <style scoped>
 .share-ctn {
     width: 190px;
-    bottom: 95px;
-    right: 30px;
+    bottom: 10%;
+    right: 1%;
 }
 .share-img {
     width: 100%;
