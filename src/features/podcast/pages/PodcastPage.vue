@@ -30,6 +30,7 @@ const topics = [
         watched: false,
         podcasts: [
             {
+                id: 0,
                 name: 'Sự trả ơn của Hổ trắng',
                 image: new URL('@/assets/images/topic.png', import.meta.url)
                     .href,
@@ -39,20 +40,27 @@ const topics = [
                 ).href,
             },
             {
-                name: 'Văn học: Tên podcast ở đây',
+                id: 1,
+                name: 'Sự tích quả bầu tiên',
                 image: new URL('@/assets/images/topic.png', import.meta.url)
                     .href,
-                sound: new URL('@/assets/audio/podcast.mp3', import.meta.url)
-                    .href,
+                sound: new URL(
+                    '@/assets/audio/0-1-su-tich-qua-bau-tien.mp4',
+                    import.meta.url
+                ).href,
             },
             {
-                name: 'Tâm sự: Tên podcast ở đây',
+                id: 2,
+                name: 'Tình bạn diệu kỳ',
                 image: new URL('@/assets/images/topic.png', import.meta.url)
                     .href,
-                sound: new URL('@/assets/audio/podcast.mp3', import.meta.url)
-                    .href,
+                sound: new URL(
+                    '@/assets/audio/0-2-tinh-ban-dieu-ky.mp4',
+                    import.meta.url
+                ).href,
             },
         ],
+        bg: 'images/bg2.png',
     },
     {
         id: 1,
@@ -60,27 +68,14 @@ const topics = [
         watched: false,
         podcasts: [
             {
-                name: 'Bố mẹ đã "cưa đổ" tớ',
+                id: 0,
+                name: 'Câu chuyện cậu bé Pinocchico',
                 image: new URL('@/assets/images/topic.png', import.meta.url)
                     .href,
                 sound: new URL(
-                    '@/assets/audio/1-0-bo-me-da-cua-do-to.m4a',
+                    '@/assets/audio/1-0-cau-chuyen-cau-be-pinocchico.mp4',
                     import.meta.url
                 ).href,
-            },
-            {
-                name: 'Văn học: Tên podcast ở đây',
-                image: new URL('@/assets/images/topic.png', import.meta.url)
-                    .href,
-                sound: new URL('@/assets/audio/podcast.mp3', import.meta.url)
-                    .href,
-            },
-            {
-                name: 'Tâm sự: Tên podcast ở đây',
-                image: new URL('@/assets/images/topic.png', import.meta.url)
-                    .href,
-                sound: new URL('@/assets/audio/podcast.mp3', import.meta.url)
-                    .href,
             },
         ],
     },
@@ -88,49 +83,126 @@ const topics = [
         id: 2,
         name: 'Siêng học siêng làm',
         watched: false,
-        podcasts: [],
+        podcasts: [
+            {
+                id: 0,
+                name: 'Ve sầu và kiến',
+                image: new URL('@/assets/images/topic.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/2-0-ve-sau-va-kien.mp4',
+                    import.meta.url
+                ).href,
+            },
+        ],
         bg: 'images/bg1.png',
     },
     {
         id: 3,
         name: 'Cùng nhau đoàn kết',
         watched: false,
-        podcasts: [],
+        podcasts: [
+            {
+                id: 0,
+                name: 'Người thợ săn và những chú chim bồ câu',
+                image: new URL('@/assets/images/topic.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/3-0-nguoi-tho-san-va-nhung-chu-chim-bo-cau.mp4',
+                    import.meta.url
+                ).href,
+            },
+        ],
         bg: 'images/bg2.png',
     },
     {
         id: 4,
         name: 'Dấu ấn quê hương',
         watched: false,
-        podcasts: [],
+        podcasts: [
+            {
+                id: 0,
+                name: 'Bố mẹ đã "cưa đổ" tớ',
+                image: new URL('@/assets/images/topic.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/4-0-bo-me-da-cua-do-to.mp4',
+                    import.meta.url
+                ).href,
+            },
+        ],
         bg: 'images/bg3.png',
     },
     {
         id: 5,
         name: 'Nơi tình yêu đong đầy',
         watched: false,
-        podcasts: [],
+        podcasts: [
+            {
+                id: 0,
+                name: 'Bàn chân ông nội',
+                image: new URL('@/assets/images/topic.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/5-0-ban-chan-ong-noi.mp4',
+                    import.meta.url
+                ).href,
+            },
+        ],
         bg: 'images/bg1.png',
     },
     {
         id: 6,
         name: 'Những người quả cảm',
         watched: false,
-        podcasts: [],
+        podcasts: [
+            {
+                id: 0,
+                name: 'Câu chuyện Đam bơ ri',
+                image: new URL('@/assets/images/topic.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/6-0-cau-chuyen-dam-bo-ri.mp4',
+                    import.meta.url
+                ).href,
+            },
+        ],
         bg: 'images/bg2.png',
     },
     {
         id: 7,
         name: 'Thế giới diệu kì',
         watched: false,
-        podcasts: [],
+        podcasts: [
+            {
+                id: 0,
+                name: 'Vùng tây Ra đi oo',
+                image: new URL('@/assets/images/topic.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/7-0-vung-tay-ra-di-o.mp4',
+                    import.meta.url
+                ).href,
+            },
+        ],
         bg: 'images/bg3.png',
     },
     {
         id: 8,
         name: 'Tình yêu cuộc sống',
         watched: false,
-        podcasts: [],
+        podcasts: [
+            {
+                id: 0,
+                name: 'Chiếc lá cuối cùng',
+                image: new URL('@/assets/images/topic.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/8-0-chiec-la-cuoi-cung.mp4',
+                    import.meta.url
+                ).href,
+            },
+        ],
         bg: 'images/bg1.png',
     },
 ];
@@ -191,8 +263,31 @@ const onClickTopic = (selectedTopicId: number) => {
     }
 };
 const onClickPodcast = (selectedPodcastId: number) => {
-    openPodcast.value = null as any;
     openPodcast.value = selectedTopic.value.podcasts[selectedPodcastId];
+};
+const onMovePre = () => {
+    if (openPodcast.value?.id === 0) {
+        if (selectedTopic.value.id === 0) {
+            return;
+        } else {
+            onClickTopic(selectedTopic.value.id - 1);
+            onClickPodcast(selectedTopic.value.podcasts.length - 1);
+        }
+    } else {
+        onClickPodcast((openPodcast.value?.id as number) - 1);
+    }
+};
+const onMoveNext = () => {
+    if (openPodcast.value?.id === selectedTopic.value.podcasts.length - 1) {
+        if (selectedTopic.value.id === topics.length - 1) {
+            return;
+        } else {
+            onClickTopic(selectedTopic.value.id + 1);
+            onClickPodcast(0);
+        }
+    } else {
+        onClickPodcast((openPodcast.value?.id as number) + 1);
+    }
 };
 const onEnded = () => {
     allowGame.value = true;
@@ -272,6 +367,8 @@ const onGotoGame = () => {
                 :key="openPodcast.name"
                 :topicName="selectedTopic.name"
                 :podcast="openPodcast"
+                @pre="onMovePre"
+                @next="onMoveNext"
                 @ended="onEnded"
             />
             <el-tooltip
@@ -302,6 +399,7 @@ const onGotoGame = () => {
 .container {
     max-width: 1200px;
     width: 80%;
+    margin-left: 30%;
 }
 .topics {
     padding: 8px;

@@ -11,7 +11,7 @@ interface Prop {
 }
 
 withDefaults(defineProps<Prop>(), {});
-const emit = defineEmits(['ended']);
+const emit = defineEmits(['ended', 'pre', 'next']);
 
 const audio = ref(null);
 const playing = ref(false);
@@ -30,6 +30,13 @@ const onClickPlayAudio = () => {
     }
     playing.value = !playing.value;
 };
+const onClickMove = (e: number) => {
+    if (e === -1) {
+        emit('pre');
+    } else {
+        emit('next');
+    }
+};
 </script>
 
 <template>
@@ -38,7 +45,14 @@ const onClickPlayAudio = () => {
     >
         <img :src="podcast.image" alt="" class="podcast-img mb-1" />
         <span class="mb-2">{{ podcast.name }}</span>
-        <div class="mb-2">
+        <div class="mb-2 d-flex flex-row">
+            <div class="audio-btn-ctn" @click="onClickMove(-1)">
+                <img
+                    src="@/assets/icons/pre-solid.svg"
+                    alt=""
+                    class="audio-btn"
+                />
+            </div>
             <div v-if="playing" class="audio-btn-ctn" @click="onClickPlayAudio">
                 <img
                     src="@/assets/icons/pause-solid.svg"
@@ -49,6 +63,13 @@ const onClickPlayAudio = () => {
             <div v-else class="audio-btn-ctn" @click="onClickPlayAudio">
                 <img
                     src="@/assets/icons/play-solid.svg"
+                    alt=""
+                    class="audio-btn"
+                />
+            </div>
+            <div class="audio-btn-ctn" @click="onClickMove(1)">
+                <img
+                    src="@/assets/icons/next-solid.svg"
                     alt=""
                     class="audio-btn"
                 />
@@ -79,6 +100,7 @@ const onClickPlayAudio = () => {
     border-radius: 8px;
 }
 .audio-btn-ctn {
+    margin: 0 4px;
     border-radius: 50%;
     width: 44px;
     height: 44px;

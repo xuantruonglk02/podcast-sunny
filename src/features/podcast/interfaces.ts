@@ -1,4 +1,5 @@
 export interface Podcast {
+    id: number;
     name: string;
     image: string;
     sound: string;
