@@ -44,7 +44,9 @@ const onClickMove = (e: number) => {
         class="position-absolute d-flex flex-column align-items-center podcast-content justify-content-center"
     >
         <img :src="podcast.image" alt="" class="podcast-img mb-1" />
-        <span class="mb-2">{{ podcast.name }}</span>
+        <span class="mb-2" style="font-size: 18px; font-weight: 600">{{
+            podcast.name
+        }}</span>
         <div class="mb-2 d-flex flex-row">
             <div class="audio-btn-ctn" @click="onClickMove(-1)">
                 <img
