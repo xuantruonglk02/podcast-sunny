@@ -13,19 +13,19 @@ const emit = defineEmits(['close', 'choose-seed']);
 const seeds = [
     {
         image: new URL('@/assets/images/seed-0.png', import.meta.url).href,
-        name: 'Hạt giống cây a b c x y z',
+        name: 'Hạt giống lê',
     },
     {
         image: new URL('@/assets/images/seed-1.png', import.meta.url).href,
-        name: 'Hạt giống cây a b c x y z',
+        name: 'Hạt giống cam',
     },
     {
         image: new URL('@/assets/images/seed-2.png', import.meta.url).href,
-        name: 'Hạt giống cây a b c x y z',
+        name: 'Hạt giống táo',
     },
     {
         image: new URL('@/assets/images/seed-3.png', import.meta.url).href,
-        name: 'Hạt giống cây a b c x y z',
+        name: 'Hạt giống xoài',
     },
 ];
 
@@ -89,5 +89,6 @@ const onChooseSeed = (seedIndex: number) => {
 .seed-name {
     color: red;
     font-size: 18px;
+    font-family: 'Faustina', serif;
 }
 </style>

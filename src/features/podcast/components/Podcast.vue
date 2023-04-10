@@ -7,6 +7,7 @@ interface Prop {
         image: string;
         name: string;
         sound: string;
+        title: string;
     };
 }
 
@@ -45,7 +46,7 @@ const onClickMove = (e: number) => {
     >
         <img :src="podcast.image" alt="" class="podcast-img mb-1" />
         <span class="mb-2" style="font-size: 18px; font-weight: 600">{{
-            podcast.name
+            podcast.title
         }}</span>
         <div class="mb-2 d-flex flex-row">
             <div class="audio-btn-ctn" @click="onClickMove(-1)">
@@ -125,8 +126,8 @@ const onClickMove = (e: number) => {
     }
 }
 
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display,
+/* audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display, */
 audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-pause-button,
 audio::-webkit-media-controls-mute-button,

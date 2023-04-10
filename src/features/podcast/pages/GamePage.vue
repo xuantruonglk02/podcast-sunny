@@ -2,8 +2,12 @@
 import { computed, onMounted, ref } from 'vue';
 import { usePodcastStore } from '../store';
 import SeedStore from '../components/SeedStore.vue';
+import { useRouter } from 'vue-router';
+import { PageName } from '@/common/constants';
+import { Back } from '@element-plus/icons-vue';
 
 const podcastStore = usePodcastStore();
+const router = useRouter();
 
 const treeList = [
     [
@@ -135,6 +139,10 @@ const onClickWaterCan = () => {
         }
     }, 3000);
 };
+
+const onBack = () => {
+    router.push({ name: PageName.PODCAST_PAGE });
+};
 </script>
 
 <template>
@@ -202,6 +210,17 @@ const onClickWaterCan = () => {
             @close="onCloseSeedStore"
             @choose-seed="onChooseSeed"
         />
+        <el-button
+            type="danger"
+            circle
+            style="position: fixed; top: 10px; left: 10px"
+            size="large"
+            @click="onBack"
+        >
+            <template #icon>
+                <img src="@/assets/icons/arrow-left-solid.svg" alt="" />
+            </template>
+        </el-button>
     </div>
 </template>
 

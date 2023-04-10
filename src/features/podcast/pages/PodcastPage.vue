@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router';
 import ConfidePopup from '../components/ConfidePopup.vue';
 import PodcastVue from '../components/Podcast.vue';
 import { Podcast } from '../interfaces';
+import { Back } from '@element-plus/icons-vue';
 
 interface DisplayElement {
     name: string;
@@ -517,6 +518,9 @@ const onGotoGame = () => {
         router.push({ name: PageName.GAME_PAGE });
     }
 };
+const onBack = () => {
+    router.push({ name: PageName.CLASS_PAGE });
+};
 </script>
 
 <template>
@@ -593,6 +597,17 @@ const onGotoGame = () => {
         </div>
     </div>
     <ConfidePopup :enable="confideEnable" @send="onSendConfide" />
+    <el-button
+        type="danger"
+        circle
+        style="position: fixed; top: 10px; left: 10px"
+        size="large"
+        @click="onBack"
+    >
+        <template #icon>
+            <img src="@/assets/icons/arrow-left-solid.svg" alt="" />
+        </template>
+    </el-button>
 </template>
 
 <style scoped>

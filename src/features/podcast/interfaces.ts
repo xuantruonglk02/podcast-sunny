@@ -3,6 +3,7 @@ export interface Podcast {
     name: string;
     image: string;
     sound: string;
+    title: string;
 }
 
 export interface Topic {
