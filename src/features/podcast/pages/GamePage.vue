@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
-import { usePodcastStore } from '../store';
-import SeedStore from '../components/SeedStore.vue';
-import { useRouter } from 'vue-router';
 import { PageName } from '@/common/constants';
-import { Back } from '@element-plus/icons-vue';
+import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
+import SeedStore from '../components/SeedStore.vue';
+import { usePodcastStore } from '../store';
 
 const podcastStore = usePodcastStore();
 const router = useRouter();
@@ -85,8 +84,8 @@ const treeList = [
 ];
 
 const isShowStorePopup = ref(false);
-const treeIndex = ref(0);
-const treeLevel = ref(0);
+const treeIndex = ref(podcastStore.treeIndex);
+const treeLevel = ref(podcastStore.treeLevel);
 const wateringEnabled = ref(false);
 const continueWatering = ref(true);
 const wateringMsg = ref('Tưới nước');
@@ -97,19 +96,13 @@ onMounted(() => {
     )[0].style.backgroundImage = `url("images/bg.png")`;
 });
 
-const getTreeIndex = computed(() => {
-    return treeIndex.value;
-});
-const getTreeLevel = computed(() => {
-    return treeLevel.value;
-});
-
 const onClickSeedStore = () => {
     isShowStorePopup.value = true;
 };
 const onChooseSeed = (seedIndex: number) => {
-    podcastStore.setHaveTree(true);
     treeIndex.value = seedIndex;
+    podcastStore.setHaveTree(true);
+    podcastStore.setTreeIndex(seedIndex);
     onCloseSeedStore();
 };
 const onCloseSeedStore = () => {
@@ -128,15 +121,15 @@ const onClickWaterCan = () => {
         wateringEnabled.value = false;
         wateringMsg.value =
             'Bạn đã hết lượt tưới nước. Hãy nghe podcast để nhận thêm';
-
         podcastStore.setWateringTime(podcastStore.wateringTime + 1);
         if (
-            treeLevel.value <= treeList[treeIndex.value].length &&
+            treeLevel.value <= treeList[treeIndex.value].length - 1 &&
             podcastStore.wateringTime ===
                 treeList[treeIndex.value][treeLevel.value + 1]?.wateringTime
         ) {
             treeLevel.value += 1;
         }
+        podcastStore.setTreeLevel(treeLevel.value);
     }, 3000);
 };
 
@@ -192,7 +185,7 @@ const onBack = () => {
                 <el-tooltip
                     effect="light"
                     placement="top"
-                    :content="getTreeIndex === 0 ? 'Tưới nước' : wateringMsg"
+                    :content="treeIndex === 0 ? 'Tưới nước' : wateringMsg"
                 >
                     <div class="btn-ctn" @click="onClickWaterCan">
                         <img
@@ -211,7 +204,7 @@ const onBack = () => {
             @choose-seed="onChooseSeed"
         />
         <el-button
-            type="danger"
+            type="warning"
             circle
             style="position: fixed; top: 10px; left: 10px"
             size="large"

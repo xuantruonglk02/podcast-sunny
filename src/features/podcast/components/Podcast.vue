@@ -44,11 +44,26 @@ const onClickMove = (e: number) => {
     <div
         class="position-absolute d-flex flex-column align-items-center podcast-content justify-content-center"
     >
-        <img :src="podcast.image" alt="" class="podcast-img mb-1" />
-        <span class="mb-2" style="font-size: 18px; font-weight: 600">{{
-            podcast.title
-        }}</span>
-        <div class="mb-2 d-flex flex-row">
+        <img :src="podcast.image" alt="" class="podcast-img mb-3" />
+        <span
+            class="mb-3"
+            style="
+                font-family: 'Baloo 2', cursive;
+                font-size: 22px;
+                font-weight: 600;
+            "
+            >{{ podcast.title.toUpperCase() }}</span
+        >
+        <audio
+            id="audio"
+            ref="audio"
+            :src="podcast.sound"
+            controls
+            class="audio mb-2"
+            disablepictureinpicture
+            controlslist="nodownload noplaybackrate"
+        />
+        <div class="d-flex flex-row">
             <div class="audio-btn-ctn" @click="onClickMove(-1)">
                 <img
                     src="@/assets/icons/previous.png"
@@ -74,15 +89,6 @@ const onClickMove = (e: number) => {
                 <img src="@/assets/icons/next.png" alt="" class="audio-btn" />
             </div>
         </div>
-        <audio
-            id="audio"
-            ref="audio"
-            :src="podcast.sound"
-            controls
-            class="audio"
-            disablepictureinpicture
-            controlslist="nodownload noplaybackrate"
-        />
     </div>
 </template>
 
@@ -94,12 +100,12 @@ const onClickMove = (e: number) => {
     padding: 0 30px 0 30px;
 }
 .podcast-img {
-    max-width: 150px;
+    max-width: 200px;
     width: 40%;
     border-radius: 8px;
 }
 .audio-btn-ctn {
-    margin: 0 4px;
+    margin: 0 8px;
     border-radius: 50%;
     width: 44px;
     height: 44px;

@@ -8,6 +8,9 @@ const classRight = ref(null);
 const windowWidth = ref(0);
 
 onMounted(() => {
+    document.getElementsByTagName(
+        'body'
+    )[0].style.backgroundImage = `url("images/bg.png")`;
     windowWidth.value = window.innerWidth;
     window.addEventListener('resize', () => {
         windowWidth.value = window.innerWidth;

@@ -34,7 +34,7 @@ const topics = [
         podcasts: [
             {
                 id: 0,
-                title: 'Truyện số 1',
+                title: 'Sự trả ơn của Hổ Sana',
                 name: 'Sự trả ơn của Hổ Sana',
                 image: new URL('@/assets/images/topic-0.png', import.meta.url)
                     .href,
@@ -45,7 +45,7 @@ const topics = [
             },
             {
                 id: 1,
-                title: 'Truyện số 2',
+                title: 'Sự tích quả bầu tiên',
                 name: 'Sự tích quả bầu tiên',
                 image: new URL('@/assets/images/topic-1.png', import.meta.url)
                     .href,
@@ -75,7 +75,7 @@ const topics = [
         podcasts: [
             {
                 id: 0,
-                title: 'Truyện số 1',
+                title: 'Câu chuyện cậu bé Pinocchico',
                 name: 'Câu chuyện cậu bé Pinocchico',
                 image: new URL('@/assets/images/topic-3.png', import.meta.url)
                     .href,
@@ -116,7 +116,7 @@ const topics = [
         podcasts: [
             {
                 id: 0,
-                title: 'Truyện số 1',
+                title: 'Ve sầu và kiến',
                 name: 'Ve sầu và kiến',
                 image: new URL('@/assets/images/topic-4.png', import.meta.url)
                     .href,
@@ -157,7 +157,7 @@ const topics = [
         podcasts: [
             {
                 id: 0,
-                title: 'Truyện số 1',
+                title: 'Người thợ săn và những chú chim bồ câu',
                 name: 'Người thợ săn và những chú chim bồ câu',
                 image: new URL('@/assets/images/topic-5.png', import.meta.url)
                     .href,
@@ -198,7 +198,7 @@ const topics = [
         podcasts: [
             {
                 id: 0,
-                title: 'Truyện số 1',
+                title: 'Bố mẹ đã "cưa đổ" tớ',
                 name: 'Bố mẹ đã "cưa đổ" tớ',
                 image: new URL('@/assets/images/topic-6.png', import.meta.url)
                     .href,
@@ -239,7 +239,7 @@ const topics = [
         podcasts: [
             {
                 id: 0,
-                title: 'Truyện số 1',
+                title: 'Bàn chân ông nội',
                 name: 'Bàn chân ông nội',
                 image: new URL('@/assets/images/topic-7.png', import.meta.url)
                     .href,
@@ -280,7 +280,7 @@ const topics = [
         podcasts: [
             {
                 id: 0,
-                title: 'Truyện số 1',
+                title: 'Câu chuyện Đam bơ ri',
                 name: 'Câu chuyện Đam bơ ri',
                 image: new URL('@/assets/images/topic-8.png', import.meta.url)
                     .href,
@@ -321,8 +321,8 @@ const topics = [
         podcasts: [
             {
                 id: 0,
-                title: 'Truyện số 1',
-                name: 'Vùng tây Ra đi oo',
+                title: 'Vùng tây Ra đi ô',
+                name: 'Vùng tây Ra đi ô',
                 image: new URL('@/assets/images/topic-9.png', import.meta.url)
                     .href,
                 sound: new URL(
@@ -333,7 +333,7 @@ const topics = [
             {
                 id: 1,
                 title: 'Truyện số 2',
-                name: 'Vùng tây Ra đi oo',
+                name: 'Vùng tây Ra đi ô',
                 image: new URL('@/assets/images/topicc.png', import.meta.url)
                     .href,
                 sound: new URL(
@@ -344,7 +344,7 @@ const topics = [
             {
                 id: 2,
                 title: 'Tâm sự cùng bạn',
-                name: 'Vùng tây Ra đi oo',
+                name: 'Vùng tây Ra đi ô',
                 image: new URL('@/assets/images/topic-2.png', import.meta.url)
                     .href,
                 sound: new URL(
@@ -362,7 +362,7 @@ const topics = [
         podcasts: [
             {
                 id: 0,
-                title: 'Truyện số 1',
+                title: 'Chiếc lá cuối cùng',
                 name: 'Chiếc lá cuối cùng',
                 image: new URL('@/assets/images/topic-10.png', import.meta.url)
                     .href,
@@ -421,6 +421,9 @@ onBeforeMount(() => {
     });
 });
 onMounted(() => {
+    document.getElementsByTagName(
+        'body'
+    )[0].style.backgroundImage = `url("images/bg2.png")`;
     bgWidth.value = (topicsCtn.value as unknown as HTMLElement)?.offsetWidth;
     bgHeight.value = (topicsCtn.value as unknown as HTMLElement)?.offsetHeight;
 });
@@ -511,7 +514,7 @@ const onSendConfide = () => {
 const onGotoGame = () => {
     if (
         allowGame.value ||
-        (selectedTopic.value.id === 0 &&
+        (selectedTopic.value?.id === 0 &&
             openPodcast.value?.name === selectedTopic.value.podcasts[0].name)
     ) {
         allowGame.value = false;
@@ -527,12 +530,6 @@ const onBack = () => {
     <div class="d-flex flex-row align-items-start container">
         <div
             class="col-md-4 topics"
-            style="
-                background-image: url('images/topic-board.png');
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            "
             :style="{ backgroundSize: `${bgWidth}px ${bgHeight}px` }"
             id="topicsCtn"
             ref="topicsCtn"
@@ -544,7 +541,7 @@ const onBack = () => {
                         @click="onClickTopic((topic as DisplayElement).id)"
                         class="d-flex flex-row align-items-center mb-1 topic justify-content-start"
                     >
-                        {{ (topic as DisplayElement).name }}
+                        {{ (topic as DisplayElement).name.toUpperCase() }}
                     </div>
                     <div
                         v-else
@@ -552,20 +549,16 @@ const onBack = () => {
                         class="d-flex flex-row align-items-center mb-1 podcast-item justify-content-start"
                     >
                         <img :src="topic.image" alt="" class="topic-img" />
-                        {{ (topic as DisplayElement).title }}
+                        {{
+                            (
+                                (topic as DisplayElement).title as string
+                            ).toUpperCase()
+                        }}
                     </div>
                 </div>
             </el-scrollbar>
         </div>
         <div class="col-11 podcast position-relative">
-            <div>
-                <img
-                    v-if="!selectedTopic?.bg"
-                    :src="bgs[bgBoard]"
-                    alt=""
-                    class="podcast-bg"
-                />
-            </div>
             <PodcastVue
                 v-if="openPodcast"
                 :key="openPodcast.name"
@@ -598,7 +591,7 @@ const onBack = () => {
     </div>
     <ConfidePopup :enable="confideEnable" @send="onSendConfide" />
     <el-button
-        type="danger"
+        type="warning"
         circle
         style="position: fixed; top: 10px; left: 10px"
         size="large"
@@ -617,19 +610,23 @@ const onBack = () => {
     margin-left: 0;
 }
 .topics {
-    padding: 6% 18px 12px 12px;
-    /* background-color: darkred; */
+    padding: 6% 24px 12px 16px;
     margin-right: 12px;
     height: 70vh;
+    background-image: url('images/topic-board.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .topic {
-    padding: 8px;
+    padding: 8px 8px 8px 16px;
     /* border-radius: 12px; */
     background-color: #edd698;
     text-align: left;
     cursor: pointer;
     user-select: none;
-    font-family: 'Faustina', serif;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 500;
 }
 .podcast {
     height: 100%;
@@ -645,7 +642,8 @@ const onBack = () => {
     text-align: left;
     cursor: pointer;
     user-select: none;
-    font-family: 'Faustina', serif;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 500;
 }
 .topic-img {
     margin-right: 8px;
@@ -660,8 +658,8 @@ const onBack = () => {
     object-position: center;
 }
 .goto-game-btn {
-    bottom: 33%;
-    right: 12%;
+    bottom: 30%;
+    right: 15%;
     width: 120px;
     border-radius: 50%;
     cursor: pointer;
