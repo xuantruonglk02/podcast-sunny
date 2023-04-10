@@ -35,7 +35,7 @@ onMounted(() => {
 
     loadInterval = setInterval(() => {
         percentage.value = percentage.value + 5;
-    }, 500);
+    }, 200);
 });
 
 watch(percentage, (newPer, oldPer) => {
@@ -69,7 +69,7 @@ const onClickLogin = () => {
     >
         <div
             class="d-flex flex-row align-items-start justify-content-center"
-            style="width: 100%; height: 30%"
+            style="width: 100%; height: 10%"
         >
             <el-progress
                 :text-inside="true"

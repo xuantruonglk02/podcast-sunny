@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { usePodcastStore } from '../store';
 import SeedStore from '../components/SeedStore.vue';
 
@@ -86,6 +86,12 @@ const treeLevel = ref(0);
 const wateringEnabled = ref(false);
 const continueWatering = ref(true);
 const wateringMsg = ref('Tưới nước');
+
+onMounted(() => {
+    document.getElementsByTagName(
+        'body'
+    )[0].style.backgroundImage = `url("images/bg.png")`;
+});
 
 const getTreeIndex = computed(() => {
     return treeIndex.value;

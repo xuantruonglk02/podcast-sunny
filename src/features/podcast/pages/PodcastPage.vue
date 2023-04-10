@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PageName } from '@/common/constants';
-import { ref } from 'vue';
+import { onBeforeMount, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import ConfidePopup from '../components/ConfidePopup.vue';
 import PodcastVue from '../components/Podcast.vue';
@@ -34,11 +34,11 @@ const topics = [
             {
                 id: 0,
                 title: 'Truyện số 1',
-                name: 'Sự trả ơn của Hổ trắng',
+                name: 'Sự trả ơn của Hổ Sana',
                 image: new URL('@/assets/images/topic-0.png', import.meta.url)
                     .href,
                 sound: new URL(
-                    '@/assets/audio/0-0-su-tra-on-cua-ho-trang.m4a',
+                    '@/assets/audio/0-0-su-tra-on-cua-ho-sana.mp4',
                     import.meta.url
                 ).href,
             },
@@ -83,7 +83,30 @@ const topics = [
                     import.meta.url
                 ).href,
             },
+            {
+                id: 1,
+                title: 'Truyện số 2',
+                name: 'Câu chuyện cậu bé Pinocchico',
+                image: new URL('@/assets/images/topicc.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/1-0-cau-chuyen-cau-be-pinocchico.mp4',
+                    import.meta.url
+                ).href,
+            },
+            {
+                id: 2,
+                title: 'Tâm sự cùng bạn',
+                name: 'Câu chuyện cậu bé Pinocchico',
+                image: new URL('@/assets/images/topic-2.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/1-0-cau-chuyen-cau-be-pinocchico.mp4',
+                    import.meta.url
+                ).href,
+            },
         ],
+        bg: 'images/bg2.png',
     },
     {
         id: 2,
@@ -101,8 +124,30 @@ const topics = [
                     import.meta.url
                 ).href,
             },
+            {
+                id: 1,
+                title: 'Truyện số 2',
+                name: 'Ve sầu và kiến',
+                image: new URL('@/assets/images/topicc.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/2-0-ve-sau-va-kien.mp4',
+                    import.meta.url
+                ).href,
+            },
+            {
+                id: 2,
+                title: 'Tâm sự cùng bạn',
+                name: 'Ve sầu và kiến',
+                image: new URL('@/assets/images/topic-2.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/2-0-ve-sau-va-kien.mp4',
+                    import.meta.url
+                ).href,
+            },
         ],
-        bg: 'images/bg1.png',
+        bg: 'images/bg2.png',
     },
     {
         id: 3,
@@ -114,6 +159,28 @@ const topics = [
                 title: 'Truyện số 1',
                 name: 'Người thợ săn và những chú chim bồ câu',
                 image: new URL('@/assets/images/topic-5.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/3-0-nguoi-tho-san-va-nhung-chu-chim-bo-cau.mp4',
+                    import.meta.url
+                ).href,
+            },
+            {
+                id: 1,
+                title: 'Truyện số 2',
+                name: 'Người thợ săn và những chú chim bồ câu',
+                image: new URL('@/assets/images/topicc.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/3-0-nguoi-tho-san-va-nhung-chu-chim-bo-cau.mp4',
+                    import.meta.url
+                ).href,
+            },
+            {
+                id: 2,
+                title: 'Tâm sự cùng bạn',
+                name: 'Người thợ săn và những chú chim bồ câu',
+                image: new URL('@/assets/images/topic-2.png', import.meta.url)
                     .href,
                 sound: new URL(
                     '@/assets/audio/3-0-nguoi-tho-san-va-nhung-chu-chim-bo-cau.mp4',
@@ -139,8 +206,30 @@ const topics = [
                     import.meta.url
                 ).href,
             },
+            {
+                id: 1,
+                title: 'Truyện số 2',
+                name: 'Bố mẹ đã "cưa đổ" tớ',
+                image: new URL('@/assets/images/topicc.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/4-0-bo-me-da-cua-do-to.mp4',
+                    import.meta.url
+                ).href,
+            },
+            {
+                id: 2,
+                title: 'Tâm sự cùng bạn',
+                name: 'Bố mẹ đã "cưa đổ" tớ',
+                image: new URL('@/assets/images/topic-2.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/4-0-bo-me-da-cua-do-to.mp4',
+                    import.meta.url
+                ).href,
+            },
         ],
-        bg: 'images/bg3.png',
+        bg: 'images/bg2.png',
     },
     {
         id: 5,
@@ -158,8 +247,30 @@ const topics = [
                     import.meta.url
                 ).href,
             },
+            {
+                id: 1,
+                title: 'Truyện số 2',
+                name: 'Bàn chân ông nội',
+                image: new URL('@/assets/images/topicc.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/5-0-ban-chan-ong-noi.mp4',
+                    import.meta.url
+                ).href,
+            },
+            {
+                id: 2,
+                title: 'Tâm sự cùng bạn',
+                name: 'Bàn chân ông nội',
+                image: new URL('@/assets/images/topic-2.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/5-0-ban-chan-ong-noi.mp4',
+                    import.meta.url
+                ).href,
+            },
         ],
-        bg: 'images/bg1.png',
+        bg: 'images/bg2.png',
     },
     {
         id: 6,
@@ -171,6 +282,28 @@ const topics = [
                 title: 'Truyện số 1',
                 name: 'Câu chuyện Đam bơ ri',
                 image: new URL('@/assets/images/topic-8.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/6-0-cau-chuyen-dam-bo-ri.mp4',
+                    import.meta.url
+                ).href,
+            },
+            {
+                id: 1,
+                title: 'Truyện số 2',
+                name: 'Câu chuyện Đam bơ ri',
+                image: new URL('@/assets/images/topicc.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/6-0-cau-chuyen-dam-bo-ri.mp4',
+                    import.meta.url
+                ).href,
+            },
+            {
+                id: 2,
+                title: 'Tâm sự cùng bạn',
+                name: 'Câu chuyện Đam bơ ri',
+                image: new URL('@/assets/images/topic-2.png', import.meta.url)
                     .href,
                 sound: new URL(
                     '@/assets/audio/6-0-cau-chuyen-dam-bo-ri.mp4',
@@ -196,8 +329,30 @@ const topics = [
                     import.meta.url
                 ).href,
             },
+            {
+                id: 1,
+                title: 'Truyện số 2',
+                name: 'Vùng tây Ra đi oo',
+                image: new URL('@/assets/images/topicc.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/7-0-vung-tay-ra-di-o.mp4',
+                    import.meta.url
+                ).href,
+            },
+            {
+                id: 2,
+                title: 'Tâm sự cùng bạn',
+                name: 'Vùng tây Ra đi oo',
+                image: new URL('@/assets/images/topic-2.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/7-0-vung-tay-ra-di-o.mp4',
+                    import.meta.url
+                ).href,
+            },
         ],
-        bg: 'images/bg3.png',
+        bg: 'images/bg2.png',
     },
     {
         id: 8,
@@ -215,8 +370,30 @@ const topics = [
                     import.meta.url
                 ).href,
             },
+            {
+                id: 1,
+                title: 'Truyện số 2',
+                name: 'Chiếc lá cuối cùng',
+                image: new URL('@/assets/images/topicc.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/8-0-chiec-la-cuoi-cung.mp4',
+                    import.meta.url
+                ).href,
+            },
+            {
+                id: 2,
+                title: 'Tâm sự cùng bạn',
+                name: 'Chiếc lá cuối cùng',
+                image: new URL('@/assets/images/topic-2.png', import.meta.url)
+                    .href,
+                sound: new URL(
+                    '@/assets/audio/8-0-chiec-la-cuoi-cung.mp4',
+                    import.meta.url
+                ).href,
+            },
         ],
-        bg: 'images/bg1.png',
+        bg: 'images/bg2.png',
     },
 ];
 
@@ -227,6 +404,25 @@ const openPodcast = ref<Podcast>();
 const allowGame = ref(false);
 const confideEnable = ref(true);
 const bgBoard = ref(0);
+
+const topicsCtn = ref(null);
+const bgWidth = ref();
+const bgHeight = ref();
+
+onBeforeMount(() => {
+    window.addEventListener('resize', () => {
+        bgWidth.value = (
+            topicsCtn.value as unknown as HTMLElement
+        )?.offsetWidth;
+        bgHeight.value = (
+            topicsCtn.value as unknown as HTMLElement
+        )?.offsetHeight;
+    });
+});
+onMounted(() => {
+    bgWidth.value = (topicsCtn.value as unknown as HTMLElement)?.offsetWidth;
+    bgHeight.value = (topicsCtn.value as unknown as HTMLElement)?.offsetHeight;
+});
 
 const getDisplayList = (): DisplayElement[] => {
     if (!selectedTopic.value) {
@@ -325,21 +521,19 @@ const onGotoGame = () => {
 
 <template>
     <div class="d-flex flex-row align-items-start container">
-        <div class="col-md-3 topics">
-            <div
-                class="mb-2"
-                style="
-                    text-align: center;
-                    background-color: chocolate;
-                    color: white;
-                    font-weight: 700;
-                    border-radius: 12px;
-                    font-size: 24px;
-                "
-            >
-                Chủ điểm
-            </div>
-            <el-scrollbar style="height: calc(100% - 36px - 8px)">
+        <div
+            class="col-md-4 topics"
+            style="
+                background-image: url('images/topic-board.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            "
+            :style="{ backgroundSize: `${bgWidth}px ${bgHeight}px` }"
+            id="topicsCtn"
+            ref="topicsCtn"
+        >
+            <el-scrollbar style="height: calc(100%)">
                 <div v-for="(topic, index) in getDisplayList()" :key="index">
                     <div
                         v-if="(topic as DisplayElement).isTopic"
@@ -359,7 +553,7 @@ const onGotoGame = () => {
                 </div>
             </el-scrollbar>
         </div>
-        <div class="col-8 podcast position-relative">
+        <div class="col-11 podcast position-relative">
             <div>
                 <img
                     v-if="!selectedTopic?.bg"
@@ -405,20 +599,22 @@ const onGotoGame = () => {
 .container {
     max-width: 1200px;
     width: 80%;
+    margin-left: 0;
 }
 .topics {
-    padding: 8px;
-    background-color: darkred;
+    padding: 6% 18px 12px 12px;
+    /* background-color: darkred; */
     margin-right: 12px;
     height: 70vh;
 }
 .topic {
     padding: 8px;
-    border-radius: 12px;
-    background-color: white;
+    /* border-radius: 12px; */
+    background-color: #edd698;
     text-align: left;
     cursor: pointer;
     user-select: none;
+    font-family: 'Faustina', serif;
 }
 .podcast {
     height: 100%;
@@ -430,10 +626,11 @@ const onGotoGame = () => {
     margin: 0 8px;
     padding: 8px;
     border-radius: 12px;
-    background-color: aqua;
+    background-color: white;
     text-align: left;
     cursor: pointer;
     user-select: none;
+    font-family: 'Faustina', serif;
 }
 .topic-img {
     margin-right: 8px;
@@ -448,8 +645,8 @@ const onGotoGame = () => {
     object-position: center;
 }
 .goto-game-btn {
-    top: 0;
-    right: 0;
+    bottom: 33%;
+    right: 12%;
     width: 120px;
     border-radius: 50%;
     cursor: pointer;

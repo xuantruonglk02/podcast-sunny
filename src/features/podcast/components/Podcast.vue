@@ -50,7 +50,7 @@ const onClickMove = (e: number) => {
         <div class="mb-2 d-flex flex-row">
             <div class="audio-btn-ctn" @click="onClickMove(-1)">
                 <img
-                    src="@/assets/icons/pre-solid.svg"
+                    src="@/assets/icons/previous.png"
                     alt=""
                     class="audio-btn"
                 />
@@ -70,11 +70,7 @@ const onClickMove = (e: number) => {
                 />
             </div>
             <div class="audio-btn-ctn" @click="onClickMove(1)">
-                <img
-                    src="@/assets/icons/next-solid.svg"
-                    alt=""
-                    class="audio-btn"
-                />
+                <img src="@/assets/icons/next.png" alt="" class="audio-btn" />
             </div>
         </div>
         <audio
