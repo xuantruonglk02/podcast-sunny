@@ -135,6 +135,11 @@ const onClickWaterCan = () => {
 
 const onBack = () => {
     router.push({ name: PageName.PODCAST_PAGE });
+    if (podcastStore.treeLevel >= treeList[podcastStore.treeIndex].length - 1) {
+        podcastStore.setHaveTree(false);
+        podcastStore.setWateringTime(0);
+        podcastStore.setTreeLevel(0);
+    }
 };
 </script>
 
