@@ -216,7 +216,11 @@ const onBack = () => {
             @click="onBack"
         >
             <template #icon>
-                <img src="@/assets/icons/arrow-left-solid.svg" alt="" />
+                <img
+                    src="@/assets/icons/arrow-left-solid.svg"
+                    alt=""
+                    style="width: 16px; height: 14px"
+                />
             </template>
         </el-button>
     </div>

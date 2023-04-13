@@ -568,27 +568,25 @@ const onBack = () => {
                 @next="onMoveNext"
                 @ended="onEnded"
             />
-            <el-tooltip
-                effect="light"
-                placement="top"
-                :content="
-                    allowGame
-                        ? 'Đến khu vườn'
-                        : 'Bạn phải nghe hết podcast trước'
-                "
-            >
-                <div class="goto-game-btn position-absolute">
-                    <a @click="onGotoGame" style="border-radius: 50%">
-                        <img
-                            src="@/assets/images/go-to-game.png"
-                            alt=""
-                            class="goto-game-img"
-                        />
-                    </a>
-                </div>
-            </el-tooltip>
         </div>
     </div>
+    <el-tooltip
+        effect="light"
+        placement="top"
+        :content="
+            allowGame ? 'Đến khu vườn' : 'Bạn phải nghe hết podcast trước'
+        "
+    >
+        <div class="goto-game-btn position-absolute">
+            <a @click="onGotoGame" style="border-radius: 50%">
+                <img
+                    src="@/assets/images/go-to-game.png"
+                    alt=""
+                    class="goto-game-img"
+                />
+            </a>
+        </div>
+    </el-tooltip>
     <ConfidePopup :enable="confideEnable" @send="onSendConfide" />
     <el-button
         type="warning"
@@ -598,7 +596,11 @@ const onBack = () => {
         @click="onBack"
     >
         <template #icon>
-            <img src="@/assets/icons/arrow-left-solid.svg" alt="" />
+            <img
+                src="@/assets/icons/arrow-left-solid.svg"
+                alt=""
+                style="width: 16px; height: 14px"
+            />
         </template>
     </el-button>
 </template>
@@ -659,11 +661,11 @@ const onBack = () => {
 }
 .goto-game-btn {
     bottom: 30%;
-    right: 15%;
+    right: 10%;
     width: 120px;
     border-radius: 50%;
     cursor: pointer;
-    height: auto !important;
+    height: fit-content !important;
 }
 .goto-game-btn:hover {
     box-shadow: 0 0 10px 0px white;
@@ -672,17 +674,18 @@ const onBack = () => {
     width: 100%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
     .goto-game-btn {
+        /* position: fixed !important; */
         width: 80px;
+        bottom: 31%;
+        /* top: 12px; */
+        /* right: 13%; */
     }
 }
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
     .goto-game-btn {
-        position: fixed !important;
-        width: 100px;
-        top: 12px;
-        right: 12px;
+        width: 40px;
     }
 }
 @media (max-width: 520px) {

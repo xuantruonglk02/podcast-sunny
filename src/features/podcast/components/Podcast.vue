@@ -126,6 +126,17 @@ const onClickMove = (e: number) => {
     max-width: 350px;
 }
 
+@media (max-width: 1200px) {
+    .podcast-img {
+        width: 25%;
+    }
+}
+@media (max-width: 1000px) {
+    .podcast-img {
+        width: 20%;
+        margin-bottom: 12px !important;
+    }
+}
 @media (max-width: 520px) {
     .podcast-img {
         width: 50%;

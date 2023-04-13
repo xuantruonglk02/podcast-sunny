@@ -40,7 +40,7 @@ const onSend = () => {
 .share-ctn {
     width: 190px;
     bottom: 15%;
-    right: 10%;
+    right: 8%;
 }
 .share-img {
     width: 100%;
@@ -57,6 +57,16 @@ const onSend = () => {
 .send-btn {
     width: 24px;
     height: 24px;
+}
+@media (max-width: 1200px) {
+    .share-ctn {
+        width: 120px;
+    }
+}
+@media (max-width: 900px) {
+    .share-ctn {
+        width: 80px;
+    }
 }
 @media (max-width: 520px) {
     .share-ctn {
