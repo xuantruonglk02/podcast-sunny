@@ -29,7 +29,7 @@ const bgs = [
 const topics = [
     {
         id: 0,
-        name: 'Yêu thương bao la',
+        name: 'Em là búp măng non',
         watched: false,
         podcasts: [
             {
@@ -70,7 +70,7 @@ const topics = [
     },
     {
         id: 1,
-        name: 'Thành thật là vàng',
+        name: 'Gia đình thân thương',
         watched: false,
         podcasts: [
             {
@@ -111,7 +111,7 @@ const topics = [
     },
     {
         id: 2,
-        name: 'Siêng học siêng làm',
+        name: 'Mái trường mến yêu',
         watched: false,
         podcasts: [
             {
@@ -152,7 +152,7 @@ const topics = [
     },
     {
         id: 3,
-        name: 'Cùng nhau đoàn kết',
+        name: 'Quê hương yêu dấu',
         watched: false,
         podcasts: [
             {
@@ -193,7 +193,7 @@ const topics = [
     },
     {
         id: 4,
-        name: 'Dấu ấn quê hương',
+        name: 'Thế giới quanh em',
         watched: false,
         podcasts: [
             {
@@ -232,170 +232,375 @@ const topics = [
         ],
         bg: 'images/bg2.png',
     },
-    {
-        id: 5,
-        name: 'Nơi tình yêu đong đầy',
-        watched: false,
-        podcasts: [
-            {
-                id: 0,
-                title: 'Bàn chân ông nội',
-                name: 'Bàn chân ông nội',
-                image: new URL('@/assets/images/topic-7.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/5-0-ban-chan-ong-noi.mp4',
-                    import.meta.url
-                ).href,
-            },
-            {
-                id: 1,
-                title: 'Truyện số 2',
-                name: 'Bàn chân ông nội',
-                image: new URL('@/assets/images/topicc.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/5-0-ban-chan-ong-noi.mp4',
-                    import.meta.url
-                ).href,
-            },
-            {
-                id: 2,
-                title: 'Tâm sự cùng bạn',
-                name: 'Bàn chân ông nội',
-                image: new URL('@/assets/images/topic-2.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/5-0-ban-chan-ong-noi.mp4',
-                    import.meta.url
-                ).href,
-            },
-        ],
-        bg: 'images/bg2.png',
-    },
-    {
-        id: 6,
-        name: 'Những người quả cảm',
-        watched: false,
-        podcasts: [
-            {
-                id: 0,
-                title: 'Câu chuyện Đam bơ ri',
-                name: 'Câu chuyện Đam bơ ri',
-                image: new URL('@/assets/images/topic-8.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/6-0-cau-chuyen-dam-bo-ri.mp4',
-                    import.meta.url
-                ).href,
-            },
-            {
-                id: 1,
-                title: 'Truyện số 2',
-                name: 'Câu chuyện Đam bơ ri',
-                image: new URL('@/assets/images/topicc.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/6-0-cau-chuyen-dam-bo-ri.mp4',
-                    import.meta.url
-                ).href,
-            },
-            {
-                id: 2,
-                title: 'Tâm sự cùng bạn',
-                name: 'Câu chuyện Đam bơ ri',
-                image: new URL('@/assets/images/topic-2.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/6-0-cau-chuyen-dam-bo-ri.mp4',
-                    import.meta.url
-                ).href,
-            },
-        ],
-        bg: 'images/bg2.png',
-    },
-    {
-        id: 7,
-        name: 'Thế giới diệu kì',
-        watched: false,
-        podcasts: [
-            {
-                id: 0,
-                title: 'Vùng tây Ra đi ô',
-                name: 'Vùng tây Ra đi ô',
-                image: new URL('@/assets/images/topic-9.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/7-0-vung-tay-ra-di-o.mp4',
-                    import.meta.url
-                ).href,
-            },
-            {
-                id: 1,
-                title: 'Truyện số 2',
-                name: 'Vùng tây Ra đi ô',
-                image: new URL('@/assets/images/topicc.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/7-0-vung-tay-ra-di-o.mp4',
-                    import.meta.url
-                ).href,
-            },
-            {
-                id: 2,
-                title: 'Tâm sự cùng bạn',
-                name: 'Vùng tây Ra đi ô',
-                image: new URL('@/assets/images/topic-2.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/7-0-vung-tay-ra-di-o.mp4',
-                    import.meta.url
-                ).href,
-            },
-        ],
-        bg: 'images/bg2.png',
-    },
-    {
-        id: 8,
-        name: 'Tình yêu cuộc sống',
-        watched: false,
-        podcasts: [
-            {
-                id: 0,
-                title: 'Chiếc lá cuối cùng',
-                name: 'Chiếc lá cuối cùng',
-                image: new URL('@/assets/images/topic-10.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/8-0-chiec-la-cuoi-cung.mp4',
-                    import.meta.url
-                ).href,
-            },
-            {
-                id: 1,
-                title: 'Truyện số 2',
-                name: 'Chiếc lá cuối cùng',
-                image: new URL('@/assets/images/topicc.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/8-0-chiec-la-cuoi-cung.mp4',
-                    import.meta.url
-                ).href,
-            },
-            {
-                id: 2,
-                title: 'Tâm sự cùng bạn',
-                name: 'Chiếc lá cuối cùng',
-                image: new URL('@/assets/images/topic-2.png', import.meta.url)
-                    .href,
-                sound: new URL(
-                    '@/assets/audio/8-0-chiec-la-cuoi-cung.mp4',
-                    import.meta.url
-                ).href,
-            },
-        ],
-        bg: 'images/bg2.png',
-    },
+    // {
+    //     id: 0,
+    //     name: 'Yêu thương bao la',
+    //     watched: false,
+    //     podcasts: [
+    //         {
+    //             id: 0,
+    //             title: 'Sự trả ơn của Hổ Sana',
+    //             name: 'Sự trả ơn của Hổ Sana',
+    //             image: new URL('@/assets/images/topic-0.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/0-0-su-tra-on-cua-ho-sana.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 1,
+    //             title: 'Sự tích quả bầu tiên',
+    //             name: 'Sự tích quả bầu tiên',
+    //             image: new URL('@/assets/images/topic-1.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/0-1-su-tich-qua-bau-tien.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Tâm sự cùng bạn',
+    //             name: 'Tình bạn diệu kỳ',
+    //             image: new URL('@/assets/images/topic-2.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/0-2-tinh-ban-dieu-ky.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //     ],
+    //     bg: 'images/bg2.png',
+    // },
+    // {
+    //     id: 1,
+    //     name: 'Thành thật là vàng',
+    //     watched: false,
+    //     podcasts: [
+    //         {
+    //             id: 0,
+    //             title: 'Câu chuyện cậu bé Pinocchico',
+    //             name: 'Câu chuyện cậu bé Pinocchico',
+    //             image: new URL('@/assets/images/topic-3.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/1-0-cau-chuyen-cau-be-pinocchico.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 1,
+    //             title: 'Truyện số 2',
+    //             name: 'Câu chuyện cậu bé Pinocchico',
+    //             image: new URL('@/assets/images/topicc.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/1-0-cau-chuyen-cau-be-pinocchico.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Tâm sự cùng bạn',
+    //             name: 'Câu chuyện cậu bé Pinocchico',
+    //             image: new URL('@/assets/images/topic-2.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/1-0-cau-chuyen-cau-be-pinocchico.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //     ],
+    //     bg: 'images/bg2.png',
+    // },
+    // {
+    //     id: 2,
+    //     name: 'Siêng học siêng làm',
+    //     watched: false,
+    //     podcasts: [
+    //         {
+    //             id: 0,
+    //             title: 'Ve sầu và kiến',
+    //             name: 'Ve sầu và kiến',
+    //             image: new URL('@/assets/images/topic-4.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/2-0-ve-sau-va-kien.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 1,
+    //             title: 'Truyện số 2',
+    //             name: 'Ve sầu và kiến',
+    //             image: new URL('@/assets/images/topicc.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/2-0-ve-sau-va-kien.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Tâm sự cùng bạn',
+    //             name: 'Ve sầu và kiến',
+    //             image: new URL('@/assets/images/topic-2.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/2-0-ve-sau-va-kien.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //     ],
+    //     bg: 'images/bg2.png',
+    // },
+    // {
+    //     id: 3,
+    //     name: 'Cùng nhau đoàn kết',
+    //     watched: false,
+    //     podcasts: [
+    //         {
+    //             id: 0,
+    //             title: 'Người thợ săn và những chú chim bồ câu',
+    //             name: 'Người thợ săn và những chú chim bồ câu',
+    //             image: new URL('@/assets/images/topic-5.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/3-0-nguoi-tho-san-va-nhung-chu-chim-bo-cau.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 1,
+    //             title: 'Truyện số 2',
+    //             name: 'Người thợ săn và những chú chim bồ câu',
+    //             image: new URL('@/assets/images/topicc.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/3-0-nguoi-tho-san-va-nhung-chu-chim-bo-cau.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Tâm sự cùng bạn',
+    //             name: 'Người thợ săn và những chú chim bồ câu',
+    //             image: new URL('@/assets/images/topic-2.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/3-0-nguoi-tho-san-va-nhung-chu-chim-bo-cau.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //     ],
+    //     bg: 'images/bg2.png',
+    // },
+    // {
+    //     id: 4,
+    //     name: 'Dấu ấn quê hương',
+    //     watched: false,
+    //     podcasts: [
+    //         {
+    //             id: 0,
+    //             title: 'Bố mẹ đã "cưa đổ" tớ',
+    //             name: 'Bố mẹ đã "cưa đổ" tớ',
+    //             image: new URL('@/assets/images/topic-6.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/4-0-bo-me-da-cua-do-to.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 1,
+    //             title: 'Truyện số 2',
+    //             name: 'Bố mẹ đã "cưa đổ" tớ',
+    //             image: new URL('@/assets/images/topicc.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/4-0-bo-me-da-cua-do-to.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Tâm sự cùng bạn',
+    //             name: 'Bố mẹ đã "cưa đổ" tớ',
+    //             image: new URL('@/assets/images/topic-2.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/4-0-bo-me-da-cua-do-to.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //     ],
+    //     bg: 'images/bg2.png',
+    // },
+    // {
+    //     id: 5,
+    //     name: 'Nơi tình yêu đong đầy',
+    //     watched: false,
+    //     podcasts: [
+    //         {
+    //             id: 0,
+    //             title: 'Bàn chân ông nội',
+    //             name: 'Bàn chân ông nội',
+    //             image: new URL('@/assets/images/topic-7.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/5-0-ban-chan-ong-noi.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 1,
+    //             title: 'Truyện số 2',
+    //             name: 'Bàn chân ông nội',
+    //             image: new URL('@/assets/images/topicc.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/5-0-ban-chan-ong-noi.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Tâm sự cùng bạn',
+    //             name: 'Bàn chân ông nội',
+    //             image: new URL('@/assets/images/topic-2.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/5-0-ban-chan-ong-noi.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //     ],
+    //     bg: 'images/bg2.png',
+    // },
+    // {
+    //     id: 6,
+    //     name: 'Những người quả cảm',
+    //     watched: false,
+    //     podcasts: [
+    //         {
+    //             id: 0,
+    //             title: 'Câu chuyện Đam bơ ri',
+    //             name: 'Câu chuyện Đam bơ ri',
+    //             image: new URL('@/assets/images/topic-8.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/6-0-cau-chuyen-dam-bo-ri.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 1,
+    //             title: 'Truyện số 2',
+    //             name: 'Câu chuyện Đam bơ ri',
+    //             image: new URL('@/assets/images/topicc.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/6-0-cau-chuyen-dam-bo-ri.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Tâm sự cùng bạn',
+    //             name: 'Câu chuyện Đam bơ ri',
+    //             image: new URL('@/assets/images/topic-2.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/6-0-cau-chuyen-dam-bo-ri.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //     ],
+    //     bg: 'images/bg2.png',
+    // },
+    // {
+    //     id: 7,
+    //     name: 'Thế giới diệu kì',
+    //     watched: false,
+    //     podcasts: [
+    //         {
+    //             id: 0,
+    //             title: 'Vùng tây Ra đi ô',
+    //             name: 'Vùng tây Ra đi ô',
+    //             image: new URL('@/assets/images/topic-9.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/7-0-vung-tay-ra-di-o.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 1,
+    //             title: 'Truyện số 2',
+    //             name: 'Vùng tây Ra đi ô',
+    //             image: new URL('@/assets/images/topicc.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/7-0-vung-tay-ra-di-o.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Tâm sự cùng bạn',
+    //             name: 'Vùng tây Ra đi ô',
+    //             image: new URL('@/assets/images/topic-2.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/7-0-vung-tay-ra-di-o.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //     ],
+    //     bg: 'images/bg2.png',
+    // },
+    // {
+    //     id: 8,
+    //     name: 'Tình yêu cuộc sống',
+    //     watched: false,
+    //     podcasts: [
+    //         {
+    //             id: 0,
+    //             title: 'Chiếc lá cuối cùng',
+    //             name: 'Chiếc lá cuối cùng',
+    //             image: new URL('@/assets/images/topic-10.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/8-0-chiec-la-cuoi-cung.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 1,
+    //             title: 'Truyện số 2',
+    //             name: 'Chiếc lá cuối cùng',
+    //             image: new URL('@/assets/images/topicc.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/8-0-chiec-la-cuoi-cung.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Tâm sự cùng bạn',
+    //             name: 'Chiếc lá cuối cùng',
+    //             image: new URL('@/assets/images/topic-2.png', import.meta.url)
+    //                 .href,
+    //             sound: new URL(
+    //                 '@/assets/audio/8-0-chiec-la-cuoi-cung.mp4',
+    //                 import.meta.url
+    //             ).href,
+    //         },
+    //     ],
+    //     bg: 'images/bg2.png',
+    // },
 ];
 
 const router = useRouter();
