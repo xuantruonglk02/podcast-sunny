@@ -820,7 +820,7 @@ const onBack = () => {
     padding: 6% 24px 12px 16px;
     margin-right: 12px;
     height: 70vh;
-    background-image: url('images/topic-board.png');
+    background-image: url('@/assets/images/topic-board.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
